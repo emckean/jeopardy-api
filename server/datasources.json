@@ -1,0 +1,18 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "es",
+    "index": "jeopardy-dev",
+    "hosts": [
+      {
+        "protocol": "http",
+        "host": "127.0.0.1",
+        "port": 9200
+      }
+    ],
+    "apiVersion": "2.3",
+    "log": "trace",
+    "defaultSize": 50,
+    "requestTimeout": 30000
+  }
+}

@@ -1,0 +1,77 @@
+{
+    "properties": {
+      "category": {
+        "type": "multi_field",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "text": {
+            "type": "string",
+            "analyzer": "standard"
+          }
+        }
+      },
+      "air_date": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "question": {
+        "type": "string",
+        "analyzer": "stemmer_analyzer",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "text": {
+            "type": "string",
+            "analyzer": "standard"
+          },
+          "shingle_lc": {
+            "type": "string",
+            "analyzer": "shingle_analyzer_lc"
+          },
+          "stemmed": {
+            "type": "string",
+            "analyzer": "stemmer_analyzer"
+          }
+        }
+
+      },
+      "value": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "answer": {
+        "type": "multi_field",
+        "fields": {
+          "raw": {
+            "type": "string",
+            "index": "not_analyzed"
+          },
+          "text": {
+            "type": "string",
+            "analyzer": "standard"
+          },
+          "shingle_lc": {
+            "type": "string",
+            "analyzer": "shingle_analyzer_lc"
+          },
+          "stemmed": {
+            "type": "string",
+            "analyzer": "stemmer_analyzer"
+          }
+        }
+      },
+      "round": {
+        "type": "string",
+        "index": "not_analyzed"
+      },
+      "show_number": {
+        "type": "integer",
+        "index": "not_analyzed"
+      }
+    }
+  }
