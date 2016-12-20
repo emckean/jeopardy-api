@@ -38,10 +38,11 @@ To get started:
 
 * start Elasticsearch `./bin/elasticsearch`
 * update the $PATH in `scripts/load-mapping.sh` to be the full path to those files/directories
-* run `bash scripts/load-mapping.sh`
+* run `bash scripts/put-mapping.sh`
 
 This should create an index in Elasticsearch for you. Then: 
 
+* `npm install` (if you haven't already)
 * start the server: `node server/server.js`
 * open up the Explorer: [http://0.0.0.0:3000/explorer](http://0.0.0.0:3000/explorer)
 * start playing!
@@ -49,6 +50,7 @@ This should create an index in Elasticsearch for you. Then:
 If you want to add more documents to your index: 
 
 * make sure you've downloaded the Jeopardy! dataset and saved it to the `/data` directory
+* install [`jq`](https://stedolan.github.io/jq/download/)
 * update the $PATH in `scripts/load.sh` to be the full path to those files/directories
 * update the LIMIT and COUNTER in `scripts/load.sh` ***do NOT try to load all 200K questions with this script***
 * run `bash scripts/load.sh`
