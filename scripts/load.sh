@@ -1,4 +1,4 @@
-let numberofQuestions=$(cat /data/JEOPARDY_QUESTIONS1.json| jq '. | length')
+let numberofQuestions=$(cat $PATH/data/JEOPARDY_QUESTIONS1.json| jq '. | length')
 echo "There are $numberofQuestions questions to load ..."
 
 COUNTER=1
@@ -7,7 +7,7 @@ LIMIT=19
 
 while [  $COUNTER -lt $LIMIT ]; do
 	#this line uses jq to grab the COUNTERth item from the large json file, and then escapes single quotes before outputting to temp file
-	echo $(cat data/JEOPARDY_QUESTIONS1.json | jq '.['$COUNTER']' | sed "s/'/\\\u0027/g")	> data/tempfile.txt
+	echo $(cat $PATH/data/JEOPARDY_QUESTIONS1.json | jq '.['$COUNTER']' | sed "s/'/\\\u0027/g")	> $PATH/data/tempfile.txt
 
 	#this line posts tempfile to elasticsearch -- make sure you have the right index and collection name! it will autogenerate an id
 	curl -XPOST http://localhost:9200/jeopardy-dev/Question/ -d @"data/tempfile.txt"
